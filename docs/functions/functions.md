@@ -1,10 +1,11 @@
-本章节会全面介绍LIGHT CHASER现有的全部功能。包括开源版与Pro版本，Pro版本功能会单独做出标注，请注意区分
+本章节会全面介绍LIGHT CHASER PRO现有的全部功能。
 
 ## 目录 <!-- {docsify-ignore} -->
 
 功能介绍会根据页面进行划分，主要划分为四个板块：
 
-- 首页
-- 主设计器
-- 蓝图设计器
-- 预览页
+- [首页](/functions/home/home)
+- [主设计器](/functions/main_desiner/main_designer)
+- [蓝图设计器](/functions/blue_print/blue_print)
+- [预览页](/functions/view/preview)
+- [演示模式](/functions/pure_demo/pure_demo)
