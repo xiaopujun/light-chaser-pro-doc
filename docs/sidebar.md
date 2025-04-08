@@ -37,3 +37,4 @@
     * [Docker部署](deploy/docker_deploy.md)
 * [常见问题](question/question.md)
 * [更新日志](log/log.md)
+* [升级指南](upgrade/upgrade.md)
