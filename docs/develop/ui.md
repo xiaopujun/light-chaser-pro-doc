@@ -1,6 +1,6 @@
 ## 简介
 
-LIGHT CHASER 配置组件库 - JSON Schema UI 是一套用于组件配置项的组件库，它可用于快速生成组件的配置项面板。
+LIGHT CHASER PRO配置组件库 - JSON Schema UI 是一套用于组件配置项的组件库，它可用于快速生成组件的配置项面板。
 
 ![](../images/json-schema样例.png)
 
@@ -288,14 +288,14 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 手风琴控件标题 |
-| tip | string | - | 手风琴控件提示信息 |
-| showSwitch | boolean | false | 是否展示手风琴控件开关 |
-| onChange | (data: boolean) => void; | - | 开关值变更回调函数 |
-| value | boolean | - | 控件值 |
-| defaultValue | boolean | - | 控件默认值 |
+| 属性名          | 类型                       | 默认值   | 说明          |
+|--------------|--------------------------|-------|-------------|
+| label        | string                   | -     | 手风琴控件标题     |
+| tip          | string                   | -     | 手风琴控件提示信息   |
+| showSwitch   | boolean                  | false | 是否展示手风琴控件开关 |
+| onChange     | (data: boolean) => void; | -     | 开关值变更回调函数   |
+| value        | boolean                  | -     | 控件值         |
+| defaultValue | boolean                  | -     | 控件默认值       |
 
 ### 按钮
 
@@ -327,9 +327,9 @@ export default function DemoMain() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| children | ComponentType | - | 按钮内容 |
+| 属性名      | 类型            | 默认值 | 说明   |
+|----------|---------------|-----|------|
+| children | ComponentType | -   | 按钮内容 |
 
 ### 网格布局
 
@@ -380,10 +380,10 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| columns | number | - | grid布局列数 |
-| gridGap | string | - | 元素间隔 |
+| 属性名     | 类型     | 默认值 | 说明       |
+|---------|--------|-----|----------|
+| columns | number | -   | grid布局列数 |
+| gridGap | string | -   | 元素间隔     |
 
 ### 输入框
 
@@ -420,13 +420,13 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| placeholder | string | - | 输入框提示信息 |
-| disabled | boolean | false | 是否禁用 |
-| onChange | (data: string) => void | - | 输入框值变更回调函数 |
+| 属性名         | 类型                     | 默认值   | 说明         |
+|-------------|------------------------|-------|------------|
+| label       | string                 | -     | 控件标题       |
+| tip         | string                 | -     | 控件提示信息     |
+| placeholder | string                 | -     | 输入框提示信息    |
+| disabled    | boolean                | false | 是否禁用       |
+| onChange    | (data: string) => void | -     | 输入框值变更回调函数 |
 
 ### 数字输入框
 
@@ -465,15 +465,15 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| min | string | - | 输入框最小值 |
-| max | number | - | 输入框最大值 |
-| step | number | - | 输入框步长 |
-| disabled | boolean | false | 是否禁用 |
-| onChange | (data: string) => void | - | 输入框值变更回调函数 |
+| 属性名      | 类型                     | 默认值   | 说明         |
+|----------|------------------------|-------|------------|
+| label    | string                 | -     | 控件标题       |
+| tip      | string                 | -     | 控件提示信息     |
+| min      | string                 | -     | 输入框最小值     |
+| max      | number                 | -     | 输入框最大值     |
+| step     | number                 | -     | 输入框步长      |
+| disabled | boolean                | false | 是否禁用       |
+| onChange | (data: string) => void | -     | 输入框值变更回调函数 |
 
 ### 单选框
 
@@ -512,14 +512,14 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
-| disabled | boolean | - | 是否禁用 |
-| options | RadioOption | - | radio选项列表 |
+| 属性名          | 类型          | 默认值 | 说明        |
+|--------------|-------------|-----|-----------|
+| label        | string      | -   | 控件标题      |
+| tip          | string      | -   | 控件提示信息    |
+| value        | string      | -   | 值         |
+| defaultValue | string      | -   | 默认值       |
+| disabled     | boolean     | -   | 是否禁用      |
+| options      | RadioOption | -   | radio选项列表 |
 
 ### 下拉框
 
@@ -559,15 +559,15 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
-| disabled | boolean | - | 是否禁用 |
-| options | ISelectOption | - | select选项列表 |
-| placeholder | RadioOption | - | 选择框默认文字 |
+| 属性名          | 类型            | 默认值 | 说明         |
+|--------------|---------------|-----|------------|
+| label        | string        | -   | 控件标题       |
+| tip          | string        | -   | 控件提示信息     |
+| value        | string        | -   | 值          |
+| defaultValue | string        | -   | 默认值        |
+| disabled     | boolean       | -   | 是否禁用       |
+| options      | ISelectOption | -   | select选项列表 |
+| placeholder  | RadioOption   | -   | 选择框默认文字    |
 
 ### 开关
 
@@ -602,13 +602,13 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
-| disabled | boolean | - | 是否禁用 |
+| 属性名          | 类型      | 默认值 | 说明     |
+|--------------|---------|-----|--------|
+| label        | string  | -   | 控件标题   |
+| tip          | string  | -   | 控件提示信息 |
+| value        | string  | -   | 值      |
+| defaultValue | string  | -   | 默认值    |
+| disabled     | boolean | -   | 是否禁用   |
 
 ### 仅文本
 
@@ -640,11 +640,11 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| defaultValue | string | - | 默认值 |
+| 属性名          | 类型     | 默认值 | 说明     |
+|--------------|--------|-----|--------|
+| label        | string | -   | 控件标题   |
+| tip          | string | -   | 控件提示信息 |
+| defaultValue | string | -   | 默认值    |
 
 ### 文本域
 
@@ -676,12 +676,12 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
+| 属性名          | 类型     | 默认值 | 说明     |
+|--------------|--------|-----|--------|
+| label        | string | -   | 控件标题   |
+| tip          | string | -   | 控件提示信息 |
+| value        | string | -   | 值      |
+| defaultValue | string | -   | 默认值    |
 
 ### 滑块
 
@@ -713,15 +713,15 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
-| max | number | - | 最大值 |
-| min | number | - | 最小值 |
-| step | number | - | 步长 |
+| 属性名          | 类型     | 默认值 | 说明     |
+|--------------|--------|-----|--------|
+| label        | string | -   | 控件标题   |
+| tip          | string | -   | 控件提示信息 |
+| value        | string | -   | 值      |
+| defaultValue | string | -   | 默认值    |
+| max          | number | -   | 最大值    |
+| min          | number | -   | 最小值    |
+| step         | number | -   | 步长     |
 
 ### 按钮组
 
@@ -768,12 +768,12 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 按钮点击时向外传递的key |
-| content | ReactNode/string | - | 按钮内部元素 |
+| 属性名     | 类型               | 默认值 | 说明            |
+|---------|------------------|-----|---------------|
+| label   | string           | -   | 控件标题          |
+| tip     | string           | -   | 控件提示信息        |
+| value   | string           | -   | 按钮点击时向外传递的key |
+| content | ReactNode/string | -   | 按钮内部元素        |
 
 ### 代码编辑器
 
@@ -809,16 +809,16 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
-| readonly | boolean | false | 是否禁用 |
-| language | json/javascript | - | 语言 |
-| width | string/number | 100% | 宽度 |
-| height | string/number | 100% | 高度 |
+| 属性名          | 类型              | 默认值   | 说明     |
+|--------------|-----------------|-------|--------|
+| label        | string          | -     | 控件标题   |
+| tip          | string          | -     | 控件提示信息 |
+| value        | string          | -     | 值      |
+| defaultValue | string          | -     | 默认值    |
+| readonly     | boolean         | false | 是否禁用   |
+| language     | json/javascript | -     | 语言     |
+| width        | string/number   | 100%  | 宽度     |
+| height       | string/number   | 100%  | 高度     |
 
 ### 颜色选择器
 
@@ -854,14 +854,14 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
-| showText | boolean | false | 是否显示颜色hex值 |
-| disabled | boolean | false | 是否禁用 |
+| 属性名          | 类型      | 默认值   | 说明         |
+|--------------|---------|-------|------------|
+| label        | string  | -     | 控件标题       |
+| tip          | string  | -     | 控件提示信息     |
+| value        | string  | -     | 值          |
+| defaultValue | string  | -     | 默认值        |
+| showText     | boolean | false | 是否显示颜色hex值 |
+| disabled     | boolean | false | 是否禁用       |
 
 ### 颜色组选择器
 
@@ -896,13 +896,13 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
-| canAdd | boolean | false | 是否可以添加颜色 |
+| 属性名          | 类型      | 默认值   | 说明       |
+|--------------|---------|-------|----------|
+| label        | string  | -     | 控件标题     |
+| tip          | string  | -     | 控件提示信息   |
+| value        | string  | -     | 值        |
+| defaultValue | string  | -     | 默认值      |
+| canAdd       | boolean | false | 是否可以添加颜色 |
 
 ### 颜色模式选择器
 
@@ -934,12 +934,12 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
-| value | string | - | 值 |
-| defaultValue | string | - | 默认值 |
+| 属性名          | 类型     | 默认值 | 说明     |
+|--------------|--------|-----|--------|
+| label        | string | -   | 控件标题   |
+| tip          | string | -   | 控件提示信息 |
+| value        | string | -   | 值      |
+| defaultValue | string | -   | 默认值    |
 
 ### 控件组
 
@@ -995,12 +995,12 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| itemName | string | - | 控件子组名称 |
-| defaultValue | object | - | 默认值 |
-| template | Control | - | 控件组模板（与普通控件类型相同） |
+| 属性名          | 类型      | 默认值 | 说明               |
+|--------------|---------|-----|------------------|
+| label        | string  | -   | 控件标题             |
+| itemName     | string  | -   | 控件子组名称           |
+| defaultValue | object  | -   | 默认值              |
+| template     | Control | -   | 控件组模板（与普通控件类型相同） |
 
 ### 卡片面板
 
@@ -1038,9 +1038,9 @@ export default function Demo() {
 
 > API（属性说明）
 
-| 属性名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| label | string | - | 控件标题 |
-| tip | string | - | 控件提示信息 |
+| 属性名   | 类型     | 默认值 | 说明     |
+|-------|--------|-----|--------|
+| label | string | -   | 控件标题   |
+| tip   | string | -   | 控件提示信息 |
 
 
