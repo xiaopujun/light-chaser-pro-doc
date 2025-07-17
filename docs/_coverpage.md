@@ -1,6 +1,6 @@
-# LIGHT CHASER PRO <small><code>v2025.1</code></small>
+# LIGHT CHASER PRO <small><code>v2025.2</code></small>
 
-<p style="font-size: 18px">一款基于React的全面且强大的数据可视化编辑工具</p>
+<p style="font-size: 18px">高性能、易扩展、功能强大的企业级数据可视化工具</p>
 <p>蓝图交互，操作简单、自定义组件</p>
 
 [开始](/introduce)
