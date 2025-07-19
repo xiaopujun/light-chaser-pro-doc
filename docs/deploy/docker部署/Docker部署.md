@@ -66,11 +66,11 @@ services:
     image: "lcp-server:2025.2" # 与docker引擎中的镜像名和标签保持一致
     container_name: light-chaser-server-container
     volumes: # 卷映射，配置格式为 宿主机路径:容器路径  此配置可以在使用容器启动应用的时候依然使用宿主机的配置文件,或者将容器内产生的资源存储到宿主机
-      - /server/config/path/application.yml:/config/application.yml
-      - /server/source/path/source:/usr/app/resource
-      - /server/log/path/logs:/usr/app/light-chaser-server/logs
+      - /server/config/path/application.yml:/lcp/server/application.yml
+      - /server/source/path/source:/lcp/server/resource  # docker部署时建议开启application.yml中的light-chaser.root配置
+      - /server/log/path/logs:/lcp/server/logs
     environment:
-      - SPRING_CONFIG_LOCATION=/config/application.yml  # 此处配置读取的是容器内部的路径，注意区分
+      - SPRING_CONFIG_LOCATION=/lcp/server/application.yml  # 此处配置读取的是容器内部的路径，注意区分
     networks:
       - light-chaser-network
     ports:
@@ -80,7 +80,6 @@ services:
       options:
         max-size: "50m"
         max-file: "3"
-
 
 networks:
   light-chaser-network:
