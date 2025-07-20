@@ -69,8 +69,7 @@ services:
       - /server/config/path/application.yml:/lcp/server/application.yml
       - /server/source/path/source:/lcp/server/resource  # docker部署时建议开启application.yml中的light-chaser.root配置
       - /server/log/path/logs:/lcp/server/logs
-    environment:
-      - SPRING_CONFIG_LOCATION=/lcp/server/application.yml  # 此处配置读取的是容器内部的路径，注意区分
+    command: [ "--spring.config.location=/lcp/server/application.yml" ] # 此处配置读取的是容器内部的路径，注意区分
     networks:
       - light-chaser-network
     ports:
