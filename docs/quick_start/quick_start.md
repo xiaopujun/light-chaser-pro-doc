@@ -1,3 +1,5 @@
+?> 您可以在[LCP体验站](http://www.lcdesigner.cn/home/server)体验LIGHT CHASER PRO完整功能
+
 本章节将介绍使用LIGHT CHASER制作一个数据看板的整体流程
 
 ## 创建项目
