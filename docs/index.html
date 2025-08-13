@@ -16,6 +16,8 @@
     <!-- Theme: Simple Dark -->
     <link rel="stylesheet" href="resource/css/theme-simple-dark.css">
     <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+    <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+
 
     <style>
 
@@ -137,6 +139,11 @@
             headings: 'h2, h3, h4',
             title: '章节目录',
         },
+        plugins: [
+            EditOnGithubPlugin.create(
+                "https://github.com/xiaopujun/light-chaser-pro-doc/tree/main/docs/"
+                , null, '在Github上编辑此页面')
+        ]
     }
 </script>
 <!-- Docsify v4 -->
