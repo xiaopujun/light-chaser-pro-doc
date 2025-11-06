@@ -1,4 +1,6 @@
-# Docker部署
+# Docker部署 【不建议】（废弃）
+
+!> LCP将逐步弃用Docker部署方式，不建议使用Docker部署方式
 
 ?> Docker部署LCP会向您提供前后端镜像文件，前端镜像中包含nginx，后端镜像中包含JDK17。因此这两个环境您无需准备，但您需要准备MySQL数据库，可以是MySQL镜像，也可以是本机的MySQL服务。
 
