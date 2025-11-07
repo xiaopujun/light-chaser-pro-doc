@@ -1,5 +1,9 @@
 # 升级指南
 
+## 升级到2025.2.0
+
+1. 2025.2.0版本重构了导出导出的文件结构，增加了项目依赖等信息。无法兼容旧版本导出的文件。
+
 ## 升级到2025.1
 
-该版本的license.zip文件不再需要解压。同时application.yml文件中的license配置也变成了非必填项，默认读取启动命令所在目录的license.zip文件。若手动配置了license路径，则依然按照配置的路径读取license文件
+1. 该版本的license.zip文件不再需要解压。同时application.yml文件中的license配置也变成了非必填项，默认读取启动命令所在目录的license.zip文件。若手动配置了license路径，则依然按照配置的路径读取license文件
