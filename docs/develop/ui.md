@@ -2,7 +2,7 @@
 
 LIGHT CHASER PRO配置组件库 - JSON Schema UI 是一套用于组件配置项的组件库，它可用于快速生成组件的配置项面板。
 
-![](../images/json-schema样例.png)
+![json-schema样例.png](json-schema样例.png)
 
 > 为什么要使用组件配置项组件库？
 
