@@ -2,33 +2,43 @@
 
 ## 总览
 
-![数据源管理.png](数据源管理.png)
+数据源管理是统一管理LIGHT CHASER PRO中公共数据源的地方。所谓公共数据源也就是配置一次，可在多个项目中重复使用。
 
-数据源管理是LIGHT CHASER PRO中外部公共数据的统一管理入口，你可以在这里操作项目中使用的数据源。
-
-后续计划中LIGHT CHASER PRO会支持更多的数据源，包括 API、MongoDB、Redis、国产关系型数据库、Excel、JSON、WebSocket等等
+现有的公共数据源包含数据库数据源、公共API数据源
 
 ## 数据库数据源
 
-数据库数据源是LIGHT CHASER PRO中已经支持的数据源类型，已经接入的关系型数据库包括
+![数据源管理.png](数据源管理.png)
+
+所有支持数据源的组件均支持数据库数据源，由于数据库数据源需要提前建立数控链接，因此需要在此处统一维护每个不同种类数据库的链接信息。目前已支持的数据库类型如下：
 
 - MySQL
 - PostgreSQL
 - SQL Server
 - Oracle
 
+#### 新建数据库链接
+
 ![新建数据库.png](新建数据库.png)
+
+#### 测试数据库连接
 
 ![测试数据库连接.png](测试数据库连接.png)
 
+#### 使用数据库数据源
+
 ![使用数据库.png](使用数据库.png)
 
-## 相关视频
+!> 注：数据库作为数据源仅支持以`select`开头的SQL语句，任何非`select`语句或者试图直接修改数据库数据的操作都是被禁止的
 
-#### 动态数据接入
+## API数据源
 
-<div style="display: flex;flex-wrap: wrap; justify-content: flex-start; align-items: stretch; ">
-    <div style="width: 100%; height:500px; flex-grow: 0;min-width: 100px;margin: 10px;">
-        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112966095733943&bvid=BV12FebeKE75&cid=500001650579578&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" style="width: 100%; height: 100%;" framespacing="0" allowfullscreen="true"></iframe>
-    </div>
-</div>
+![API数据源.png](API数据源.png)
+
+#### 创建公共API
+
+![创建公共API.png](创建公共API.png)
+
+#### 使用公共API
+
+![使用公共API.png](使用公共API.png)
