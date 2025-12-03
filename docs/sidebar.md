@@ -21,6 +21,7 @@
         * [预览](functions/main_desiner/view/preview.md)
         * [发布](functions/main_desiner/publish/publish.md)
         * [组件配置](functions/main_desiner/component_config.md)
+        * [组件组态](functions/main_desiner/component_multi_status.md)
         * [自动吸附](functions/main_desiner/auto_snapping.md)
         * [原生事件](functions/main_desiner/event.md)
         * [快捷键](functions/main_desiner/hotkey.md)
