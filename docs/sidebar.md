@@ -57,5 +57,5 @@
     * [Docker部署（弃用）](deploy/docker部署/Docker部署.md)
     * [部署参数说明](deploy/部署配置文件.md)
 * [常见问题](question/question.md)
-* [更新日志](http://www.lcpdesigner.cn/upgrade-log)
+* [更新日志](http://lcpdesigner.cn/upgrade-log)
 * [升级指南](upgrade/upgrade.md)
