@@ -1,29 +1,35 @@
-# LIGHT CHASER PRO 运行时部署
+# 软件部署
 
-本章节说明如何把当前版本的运行时发布包部署到服务器，让用户通过浏览器访问项目。
+当前版本的部署文档按三条交付线整理：
 
-当前版本推荐使用官方运行时发布包部署。一个发布包内已经包含：
+- 桌面端安装包：给普通用户安装桌面应用
+- Web 端部署：把 `lcp-server` 部署到 Windows / macOS / Linux
+- 运行时部署：把 `lcp-runtime` 部署到 Windows / macOS / Linux
 
-- `lcp-runtime`
-- `web/`，即 Pure Release 前端资源
-- `lcp-runtime-data/`，即运行时数据目录模板
-- `部署说明.md`
+?> 如果你只是想让用户下载安装到桌面端，直接看 [桌面端安装包](desktop_install.md)。
+?> 如果你要给服务器部署站点服务，先判断是 Web 端还是运行时，再进入对应章节。
 
-?> 当前版本不再需要你自己单独准备前端服务器、后端运行环境或数据库来完成运行时部署。
+## 一览
+
+| 部署线 | 主要产物 | 适用场景 | 入口 |
+| --- | --- | --- | --- |
+| 桌面端 | Windows 安装包、macOS 安装包 | 普通用户下载安装到本机 | [桌面端安装包](desktop_install.md) |
+| Web 端 | `server.jar` | 给服务器部署浏览器访问版 | [Web 端部署](web.md) |
+| 运行时 | `lcp-runtime` + `web/` + `lcp-runtime-data/` | 给 Pure Release 同源部署 | [运行时部署](runtime.md) |
+
+## 当前版本要点
+
+- 当前桌面端正式发版通过 [latest.json](https://lcpdesigner.cn/latest.json) 提供当前下载入口
+- 当前 Web 端已经收敛为单服务 `lcp-server`
+- 当前运行时通过 `lcp-runtime` 同时提供页面、接口和项目资源
+- 生产环境不再推荐把运行时拆成独立前端服务器和后端服务
 
 ## 推荐阅读顺序
 
-- [Windows运行时部署](windows常规部署/windows常规部署.md)
-- [Linux运行时部署](linux常规部署/linux常规部署.md)
-- [Windows快速启动](windows一键部署/windows平台一键部署.md)
-- [Linux快速启动](linux一键部署/Linux平台一键部署.md)
-- [部署参数说明](部署配置文件.md)
+1. [桌面端安装包](desktop_install.md)
+2. [Web 端部署](web.md)
+3. [运行时部署](runtime.md)
 
-## 旧方式
+## 历史说明
 
-!> Docker 部署已经不建议作为新用户的首选方案，如需查看历史说明，请参考 [Docker部署（弃用）](docker部署/Docker部署.md)。
-
-## 访问地址
-
-- 首页：`http://服务器IP:端口/`
-- 入口页：`http://服务器IP:端口/release.html#/`
+如果你在维护旧环境，可以继续查看 [旧版部署说明](deploy.md)。
