@@ -1,18 +1,24 @@
-# LIGHT CHASER PRO数据可视化编辑器
+# LIGHT CHASER PRO 数据可视化编辑器
 
 ## 前言
 
-感谢关注和使用 LIGHT CHASER PRO 产品。
+感谢关注和使用 LIGHT CHASER PRO。
 
-LIGHT CHASER PRO是一款基于React开发的数据可视化编辑器。通过它，你可以简单快速地制作内容丰富，视觉高级的数据可视化相关内容。
+LIGHT CHASER PRO 是一款面向大屏、数据看板和交互页面的可视化编辑器。你可以通过它完成项目创建、页面搭建、资源管理、数据源配置、导入导出、发布和查看等工作。
 
-使用LIGHT CHASER PRO的过程中，如遇见任何问题，请联系作者。我们将尽快解决。
+如果在使用过程中遇到问题，可以通过页面中的帮助入口或作者联系方式获取支持。
 
 你可以通过以下方式联系到作者：
 
 - 邮箱：1182810784@qq.com
 - 微信：P2016137144
 - QQ：1182810784
+
+## 主要入口
+
+- [快速开始](quick_start/quick_start.md)
+- [功能介绍](functions/functions.md)
+- [产品介绍](introduce.md)
 
 ## 友情链接
 

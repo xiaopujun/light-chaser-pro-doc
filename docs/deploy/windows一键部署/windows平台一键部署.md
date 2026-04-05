@@ -1,31 +1,17 @@
-# Windows一键部署
+# Windows快速启动
 
-!> windows平台的一键部署包内已经集成了jdk17和nginx服务器，但仍需要您自己准备MySQL数据库
+如果你已经拿到官方 Windows 运行时发布包，这一页就是最短启动路径。
 
-## 目录结构
+## 快速步骤
 
-windows一键部署方案提供如下目录结构：
+1. 解压 Windows 发布包到一个固定目录
+2. 确认 `lcp-runtime.exe`、`web/`、`lcp-runtime-data/` 保持同级
+3. 双击 `lcp-runtime.exe`
+4. 浏览器打开 `http://127.0.0.1:8080/release.html#/`
+5. 如果要给别人访问，把 `127.0.0.1` 换成服务器 IP 或域名
 
-- win
-    - lib
-        - app
-        - config
-            - application.yml （后端服务修改此配置文件）
-            - lc.conf （前端服务修改此配置文件）
-        - jdk-17
-        - nginx
-        - server
-            - server.jar
-    - lcp.exe
-    - license.zip（需购买后在LCP官网申请）
+?> 这不是另一套部署方式，只是同一个发布包的快速启动版说明。
 
-## 配置文件
+## 需要改端口时
 
-和其他部署方式一样，在实际启动前，你依然需要调整现有的配置文件以满足你的自定义需求。window的一键部署方案中，你只需调整在上述目录结构中的/win/lib/config/目录下的
-application.yml和lc.conf文件即可。内容的调整方式请参考[部署配置文件](/deploy/部署配置文件)。
-
-## 启动项目
-
-根据上述步骤调整好配置文件后，双击lcp.exe即可启动整个lcp服务。
-
-启动后根据配置的id+端口使用lcp应用。 默认账户 admin / 123456
+如果你需要改端口或目录，参考包内 `部署说明.md`，或者查看 [部署参数说明](../部署配置文件.md)。

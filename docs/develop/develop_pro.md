@@ -22,7 +22,7 @@ LIGHT CHASER PRO开发自定义组件需要使用官方提供的脚手架来辅�
 npm install -g light-chaser-cli
 ```
 
-安装完毕后使用使用light-chaser-cli -V或者light-chaser-cli --version命令查看版本号.
+安装完毕后使用 `light-chaser-cli -V` 或者 `light-chaser-cli --version` 命令查看版本号。
 
 ![查看版本.png](查看版本.png)
 

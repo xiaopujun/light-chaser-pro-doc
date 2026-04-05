@@ -1,141 +1,38 @@
-## 演示模式
+# 演示模式
 
-演示模式可以支持你将设计好的功能项目直接导出，配合纯演示模式的专属部署包进行精简部署，而不需要部署整个LIGHT CHASER PRO的环境
+演示模式是一个轻量运行时，用于查看已发布项目、导入项目包并进入纯预览页面。
 
-> 纯演示模式并非完整的LCP服务，因此他的渲染效果存在一定的局限性。
-> - 纯演示模式只能渲染单个项目，不支持服务项目之间的嵌套引用
-> - 纯演示模式不支持将数据库作为数据源的场景
-> - 纯演示模式不支持将公共API作为数据源的场景
-> - 纯演示模式不支持大屏引用组件
+它不提供设计器编辑能力，更适合交付、演示和只读查看。
 
-> 购买纯演示服务[请点击](https://lcpdesigner.cn/shop)
+## 你可以做什么
 
-## 第一步：导出项目
+- 查看演示列表
+- 导入 `zip` 项目包
+- 打开单个项目进行纯预览
+- 删除不需要的演示项目
 
-![导出项目.png](导出项目.png)
+## 适合场景
 
-## 第二步：部署演示服务
+- 客户查看项目效果
+- 现场演示
+- 只读浏览发布内容
 
-演示模式也需要部署前端与后端。因此你需要准备以下内容：
+## 使用流程
 
-1. 前端部署文件（LCP提供）
-2. 后端部署文件（jar包，LCP提供）
-3. JDK17
-4. nginx服务器
+1. 打开演示首页
+2. 点击“导入项目”上传 `zip` 包，或者在列表中直接打开已有项目
+3. 如果项目包启用了加密，输入导入口令
+4. 导入成功后自动进入纯预览页
+5. 在列表中点击任意卡片，可以在新标签页查看对应项目
 
-演示模式的后端使用SQLite作为数据库，不需要单独安装数据库服务。
+!> 演示模式只负责浏览和展示，不用于编辑。
 
-### 目录结构
+## 使用说明
 
-- lcp-pure.jar (用于启动后端服务)
-- lcp-pure-app.zip (纯演示模式前端文件)
-
-### 启动后端服务
-
-不论是window环境，还是linux环境，统一使用java -jar命令启动后端服务。（请提前安装好JDK17）
-
-默认启动使用 `java -jar lcp-pure.jar`，如果你想要自定义端口号，或者自定义数据库文件名称，请使用 `java -jar lcp-pure.jar --server.port=8080 --spring.datasource.url=jdbc:sqlite:D:/demo.db`
-或者在启动的时候指定外部配置文件，请使用 `java -jar lcp-pure.jar --spring.config.location=D:/application.yml`
-
-application.yml配置文件的内容可以参考：
-
-```yaml
-spring:
-  application:
-    name: lcp-show
-  servlet:
-    multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: org.sqlite.JDBC
-    url: "jdbc:sqlite:${user.dir}/lcp-show.db"
-  mybatis-plus:
-    mapper-locations: classpath:/mapper/**/*.xml
-    configuration:
-      map-underscore-to-camel-case: true
-server:
-  port: 8083
-
-```
-
-### 启动前端服务
-
-1. 将lcp-pure-app.zip解压，并复制到指定的目录下（假设目录为/lcp/pure-app）
-2. 修改nginx配置文件（window系统在nginx软件目录的conf目录下，linux通常在/etc/nginx/nginx.conf，取决于你的安装方式，可以通过nginx -t查看配置文件位置）
-3. 启动nginx（window下可以直接双击nginx.exe启动。linux下需要通过nginx命令启动）
-
-配置文件示例
-
-```nginx configuration
-
-#user  nobody;
-worker_processes  1;
-
-#error_log  logs/error.log;
-#error_log  logs/error.log  notice;
-#error_log  logs/error.log  info;
-
-#pid        logs/nginx.pid;
-
-
-events {
-    worker_connections  1024;
-}
-
-
-http {
-    include       mime.types;
-    default_type  application/octet-stream;
-
-    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-    #                  '$status $body_bytes_sent "$http_referer" '
-    #                  '"$http_user_agent" "$http_x_forwarded_for"';
-
-    #access_log  logs/access.log  main;
-
-    sendfile        on;
-    #tcp_nopush     on;
-
-    #keepalive_timeout  0;
-    keepalive_timeout  65;
-
-    #gzip  on;
-
-    server {
-            listen       8500;  # 修改为你自己的端口
-            server_name  localhost; # 修改为你自己的服务器ip或域名
-		
-            # 将lcp-pure-app.zip解压后的目录配置到这里
-    	    root /lcp/pure-app; 
-            index release.html;
-
-            #此处要尤为注意，所有LCP导出的项目都会包含静态资源，将导出的项目解压后，将静态资源目录复制到该目录下
-            location /static/ {
-                alias C:/Users/DAGU/Desktop/test-pure-demo/static/;  # 替换为导出项目压缩包内的static目录所在路径
-                # autoindex off;  # 可选，关闭目录浏览功能
-            }
-
-            # 将所有非静态资源的请求重定向到 release.html
-            location / {
-                try_files $uri $uri/ /release.html;
-            }
-
-            location @router {
-                rewrite ^.*$ /release.html last;
-            }
-
-        }
-
-}
-
-```
-
-参考上方配置文件将pure-demo部署启动后访问：http://localhost:8500/release.html (ip钝口需修改为实际ip和端口) 即可看到如下页面
+- 预览页会尽量加载项目中已配置的字体、动态脚本和服务器组件
+- 如果页面显示异常，先检查导入的项目包是否完整，或者资源链接是否还能访问
+- 删除演示项目时，会一并移除它的子项目和运行时发布记录
 
 ![纯演示首页.png](纯演示首页.png)
-
-## 第三步：导入项目
 
 ![效果预览.png](效果预览.png)
