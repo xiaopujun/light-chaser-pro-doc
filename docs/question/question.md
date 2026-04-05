@@ -39,5 +39,4 @@
 - 邮箱：1182810784@qq.com
 - 微信：P2016137144
 - QQ：1182810784
-- [Gitee Issue](https://gitee.com/xiaopujun/light-chaser/issues)
-- [Github Issue](https://github.com/xiaopujun/light-chaser/issues)
+- [GitHub Issue](https://github.com/xiaopujun/lcp-desktop/issues)

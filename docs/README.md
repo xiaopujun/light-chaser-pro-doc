@@ -1,10 +1,13 @@
-# LIGHT CHASER PRO 数据可视化编辑器
+# LIGHT CHASER PRO 文档
 
 ## 前言
 
 感谢关注和使用 LIGHT CHASER PRO。
 
-LIGHT CHASER PRO 是一款面向大屏、数据看板和交互页面的可视化编辑器。你可以通过它完成项目创建、页面搭建、资源管理、数据源配置、导入导出、发布和查看等工作。
+LIGHT CHASER PRO 是一套面向大屏、数据看板和交互页面的可视化产品。当前仓库已经同时包含两条交付线：
+
+- 桌面端设计器：用于项目创建、页面搭建、资源管理、数据源配置、导入导出、发布和查看
+- 运行时：用于同源托管、项目导入和纯展示访问
 
 如果在使用过程中遇到问题，可以通过页面中的帮助入口或作者联系方式获取支持。
 
@@ -20,14 +23,11 @@ LIGHT CHASER PRO 是一款面向大屏、数据看板和交互页面的可视化
 - [功能介绍](functions/functions.md)
 - [产品介绍](introduce.md)
 
-## 友情链接
+## 相关链接
 
-#### 开源版
+#### 开源仓库
 
-- [GitHub 开源前端](https://github.com/xiaopujun/light-chaser)
-- [GitHub 开源后端](https://github.com/xiaopujun/light-chaser-server)
-- [Gitee 开源前端](https://gitee.com/xiaopujun/light-chaser)
-- [Gitee 开源后端](https://gitee.com/xiaopujun/light-chaser-server)
+- [GitHub 仓库](https://github.com/xiaopujun/lcp-desktop)
 
 #### 社交媒体
 
@@ -36,7 +36,6 @@ LIGHT CHASER PRO 是一款面向大屏、数据看板和交互页面的可视化
 
 #### 在线体验
 
-- [LIGHT CHASER 在线体验](https://xiaopujun.github.io/light-chaser-app/#)
 - [LIGHT CHASER PRO 在线体验](http://www.lcdesigner.cn/home/server)
 
 ## 实机演示

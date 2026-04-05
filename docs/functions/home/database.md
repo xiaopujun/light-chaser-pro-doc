@@ -7,9 +7,11 @@
 ## 支持的类型
 
 - MySQL
-- PostgreSQL
-- SQL Server
+- PostgresSQL
 - Oracle
+- SQLServer
+
+> 界面里的数据库类型名称就是上面的写法。如果你在文档里看到 `PostgreSQL` 或 `SQL Server`，可以直接理解为相同的数据库能力。
 
 ## 常用操作
 

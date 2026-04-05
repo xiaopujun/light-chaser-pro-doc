@@ -79,7 +79,7 @@ npm install -g light-chaser-cli
 
 ### Controller定义说明
 
-controller接口为LIGHT CHASER自定义组件接入的核心接口之一，他定义操作自定义组件生命周期的一系列标准方法。包括创建组件、修改组件配置，触发组件重新渲染等。其详细的定义如下：
+controller接口为 LIGHT CHASER PRO 自定义组件接入的核心接口之一，它定义了操作自定义组件生命周期的一系列标准方法，包括创建组件、修改组件配置、触发组件重新渲染等。其详细的定义如下：
 
 > 注：controller存在一个抽象接口的继承体系，其中AbstractController是最顶级的抽象接口，其下为了功能扩展会派生出一些子接口：其中最为重要的便是AbstractDesignerController
 
