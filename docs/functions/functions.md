@@ -1,6 +1,6 @@
 # 功能介绍
 
-本章节介绍 LIGHT CHASER PRO 的常用功能和操作入口。
+本章节按当前 Web 端的实际菜单介绍常用功能。先阅读 [快速开始](/quick_start/quick_start.md)，再按任务查找对应章节。
 
 ## 目录 <!-- {docsify-ignore} -->
 
@@ -13,6 +13,7 @@
   - 资源管理
   - 服务器组件
   - 发布管理
+  - 用户管理（系统管理员）
   - 设置
   - 帮助
 - [主设计器](/functions/main_desiner/main_designer)
@@ -34,7 +35,7 @@
   - 快捷键
   - 封面
   - 子项目
-  - AI融合
+  - AI驱动
 - [蓝图事件设计器](/functions/blue_print/blue_print)
   - 使用流程
   - 图层节点
@@ -42,4 +43,4 @@
   - 全局变量
   - 子页面
 - [循环容器](/functions/circ_container/circulating_container)
-- [演示模式](/functions/pure_demo/pure_demo)
+- [Web 发布预览](/functions/pure_demo/pure_demo)

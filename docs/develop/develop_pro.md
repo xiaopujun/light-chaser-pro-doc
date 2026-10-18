@@ -1,311 +1,71 @@
-# 脚手架开发组件
+# 使用脚手架开发服务器组件
 
-## 总览
+服务器组件在浏览器中运行。用 `light-chaser-cli` 生成项目并实现组件后，可在本地预览、打包，再从 Web 端“服务器组件”管理页上传。Web 仓库中的 `lcp-web-interface` 只定义接口；组件运行时由 Web 应用提供。
 
-LIGHT CHASER PRO开发自定义组件需要使用官方提供的脚手架来辅助开发。而不需要依赖源码。此种方式更简洁明了
+## 环境与创建项目
 
-?> LIGHT CHASER PRO 开发自定义组件需要熟悉前端相关技术栈，包括html、css、js、React、Vite、TypeScript、pnpm。自定义组件前请确保你已经掌握了相关技术栈
+需要 Node.js、pnpm 和 TypeScript/React 基础。CLI 模板使用 Vite，且 `pnpm install` 用于安装生成项目的依赖。CLI 包当前没有声明 `engines`，因此本仓库无法给出可靠的 Node.js 最低版本；安装后先用 `light-chaser-cli -V` 确认版本。
 
-## 环境准备
-
-?> LIGHT CHASER PRO使用pnpm作为包管理器，为确保兼容性，请使用pnpm进行依赖管理
-
-开发自定义(服务器)组件，你需要准备以下开发环境
-
-- `Node.js`: 版本>18.x.x
-- `pnpm`: 版本>7.x.x
-- `IDE`: 推荐使用VSCode、WebStorm
-
-当上面的都准备好了之后，你需要全局安装LIGHT CHASER PRO提供的开发脚手架
-
-```shell
+```bash
 npm install -g light-chaser-cli
+light-chaser-cli -V
+light-chaser-cli create my-components
+cd my-components
+pnpm install
 ```
 
-安装完毕后使用 `light-chaser-cli -V` 或者 `light-chaser-cli --version` 命令查看版本号。
+`create` 会在当前目录下创建项目文件夹；若同名目录已存在，CLI 会询问是否覆盖。生成的示例组件位于 `src/components/remote-button/`。
 
-![查看版本.png](查看版本.png)
+## 开发与本地预览
 
-如上图显示说明安装成功。
+```bash
+light-chaser-cli dev
+```
 
-## 创建项目
+脚手架开发服务器使用 `http://localhost:3000/`。首页列出被识别的组件，点击组件可查看组件效果及其配置面板。
 
-使用`light-chaser-cli create <workspace>`命令创建一个自定义组件项目
+## 组件文件
 
-![创建项目.png](创建项目.png)
+模板示例按组件目录组织：
 
-## 安装依赖
+| 文件 | 用途 |
+| --- | --- |
+| `definition.ts` | 定义唯一的 `compKey`、名称、初始配置、预览图、配置菜单及蓝图事件/动作。服务器组件的 `getBaseInfo()` 必须保留 `source: 'remote'` |
+| `controller.ts` | 实现组件创建、配置更新、数据变更、事件注册、主题更新和销毁 |
+| `component.tsx` | 渲染组件界面；模板示例用 React 组件和 `forwardRef` 暴露更新配置、绑定事件的方法 |
+| `config.tsx` | 实现组件右侧配置表单，可用 `light-chaser-ui` 的 `LCGUI` 与 `Control` schema |
+| `component.module.less` | 样式 |
+| `*.png` | 组件列表中的预览图 |
 
-脚手架创建的项目同样建议使用pnpm进行依赖管理，使用`pnpm i`命令安装项目依赖
+组件 ID `compKey` 需要唯一。定义类应继承模板提供的 `AbstractDesignerDefinition`，并返回基础信息、初始配置、控制器、预览图和配置菜单映射。设计器组件还可以定义事件列表和动作列表，蓝图会按定义显示相应锚点。
 
-![安装脚手架项目依赖.png](安装脚手架项目依赖.png)
+控制器需要实现 `AbstractDesignerController` 的运行约定。`create(container, config, executor, index?)` 接收组件容器、初始配置、蓝图执行器及可选循环索引；`update()` 更新样式或其他配置，`changeData()` 更新组件数据，`registerEvent()` 把组件交互转发给蓝图，`destroy()` 释放定时器、监听器和组件实例。
 
-## 启动项目
-
-依赖安装完毕后使用`light-chaser-cli dev`命令启动项目
-
-![启动脚手架项目.png](启动脚手架项目.png)
-
-访问 http://localhost:3000/ 即可看到项目列表
-
-![脚手架组件列表.png](脚手架组件列表.png)
-
-![脚手架组件效果.png](脚手架组件效果.png)
-
-## 组件开发
-
-当你用IDE打开脚手架创建的目录后，默认会带一个示例，组件的具体实现可参考示例代码。其目录结构如下图所示。
-
-![编写脚手架组件.png](编写脚手架组件.png)
-
-!> 注意：Pro版本的脚手架中每个目录下的文件命名最好与示例保持一致不要单独调整。特别是definition.ts文件。不要改动文件名。
-
-### 核心文件及接口概念
-
-在LIGHT CHASER PRO接入自定义组件的过程中一共涉及到6个必须的文件，分别是：
-
-- definition.ts: 自定义组件信息定义文件，用于定义自定义组件的所有基础信息和初始配置数据
-
-- controller.ts: 自定义组件控制器，用于管理自定义组件的整个生命周期，后续所有对自定义组件的操作都要依赖于controller文件的实例对象，所以理解他十分重要！
-
-- component.tsx: 自定义的React组件，用于渲染自定义组件的UI，本质上和普通的React组件没有任何区别。事实上这个文件是非必须的，除非你完全自己实现React组件。
-  对于像Echarts、G2这样的图表库而言，它们有自己的API可以直接创建页面元素
-
-- component.less: 组件样式文件
-
-- config.tsx: 自定义组件的右侧配置面板，用于配置自定义组件的属性，本质上也是一个普通的React组件
-
-- xxx.png/jpg: 自定义组件的预览图，用于在设计器的组件列表中展示自定义组件的缩略图
-
-### Controller定义说明
-
-controller接口为 LIGHT CHASER PRO 自定义组件接入的核心接口之一，它定义了操作自定义组件生命周期的一系列标准方法，包括创建组件、修改组件配置、触发组件重新渲染等。其详细的定义如下：
-
-> 注：controller存在一个抽象接口的继承体系，其中AbstractController是最顶级的抽象接口，其下为了功能扩展会派生出一些子接口：其中最为重要的便是AbstractDesignerController
-
-**AbstractController定义**
+下面是点击事件接入蓝图的核心写法：
 
 ```ts
-
-export interface UpdateOptions {
-  reRender: boolean;
-}
-
-/**
- * 设计器自定义组件控制器的顶级抽象接口，用于控制自定义组件的整个生命周期
- * @param I 组件实例类型，若组件为React的class组件，则I=class的实例化对象。
- * 若组件为React的函数式组件，则I=forwardRef钩子传递出的ref引用（当然你也可以有其他自定义的实现）
- * 若组件为纯Js实现的组件，则I=组件实例化对象（可参考Echarts活G2创建实例后的返回值）
- * @param C 组件配置类型，即组件的完整属性类型
- */
-abstract class AbstractController<I = any, C = any> {
-
-  /**
-   * 组件实例引用
-   * @protected
-   */
-  protected instance: I | null = null;
-  /**
-   * 组件配置(包括组件数据)
-   * @protected
-   */
-  public config: C | null = null;
-  /**
-   * 组件所处容器的dom元素
-   * @protected
-   */
-  public container: HTMLElement | null = null;
-
-  /******************生命周期******************/
-
-  /**
-   * 创建组件并将组件挂载到指定的容器中
-   * @param container 容器
-   * @param config 组件配置
-   * @param others 组件配置
-   */
-  public abstract create(container: HTMLElement, config: C, ...others: unknown[]): Promise<void>;
-
-  /**
-   * 更新组件配置，并触发组件重新渲染
-   * @param config 组件属性（参数）
-   * @param upOp 操作类型
-   */
-  public abstract update(config: C, upOp?: UpdateOptions): void;
-
-  /**
-   * 销毁组件
-   */
-  public destroy(): void {
-    this.instance = null;
-    this.config = null;
-    this.container = null;
-  }
-
-
-  /******************普通方法******************/
-  /**
-   * 获取组件配置数据
-   */
-  public abstract getConfig(): C | null;
-
-}
-
-export default AbstractController;
-
-
-```
-
-**AbstractDesignerController定义**
-
-```ts
-
-/**
- * AbstractDesignerController继承自AbstractController，在泛型的定义和约束上和AbstractController完全保持一致。
- * 此外，AbstractDesignerController扩展了一些自定义组件所需的特有方法，如：修改组件数据、注册蓝图事件等
- */
-abstract class AbstractDesignerController<I = any, C = any> extends AbstractController<I, C> {
-  //上一次数据连接状态 true：成功 false：失败
-  protected lastReqState: boolean = true;
-  //异常提示信息dom元素
-  private errMsgDom: HTMLElement | null = null;
-  //蓝图事件触发器
-  public bpExecutor: BPExecutor | null = null;
-  //组件统一数据更新器
-  public componentDataUpdater: ComponentDataUpdater | null = null;
-
-  public abstract create(container: HTMLElement, config: C, bpExecutor: BPExecutor): Promise<void>;
-
-  /**
-   * 更新组件数据,且必须触发组件的重新渲染
-   * @param data
-   */
-  public changeData(data: any): void {
-  }
-
-  /**
-   * 用于注册组件事件，在组件接入蓝图事件系统时使用
-   */
-  public registerEvent(): void {
-  }
-
-  /**
-   * 加载组件数据，用于在预览（展示）模式下渲染完组件后根据当前组件的数据配置自动加载并更新组件数组。
-   * 注：若自定义组件有自己的数据加载方式，则需要覆写此方法
-   */
-  public loadComponentData(): void {
-  }
-
-  /**
-   * 更新本组件的主题样式方法，用于在全局切换主题时使用
-   * @param newTheme 新主题
-   */
-  public updateTheme(newTheme: ThemeItemType): void {
-  }
-
-  public updateFilter(filter: IFilterConfigType): void {
-    
-  }
-
-  /**
-   * 设置组件的显示状态，默认直接使用css属性控制组件显示。
-   * 接入组件的过程中，建议自行实现该方法以达到更好的性能表现。建议的做法是显示时重新渲染组件. 隐藏时卸载整个组件即dom元素。可以节省内存开销
-   * @param visible
-   */
-  public setVisible(visible: boolean): void {
-    
-  }
-
-
-  destroy() {
-    
-  }
-}
-
-export default AbstractDesignerController;
-```
-
-### Definition定义说明
-
-definition.ts 是定义组件所有基础信息和初始化数据的文件，其完整结构如下：
-
-```ts
-
-/**
- * 自动扫描抽象组件定义核心类。
- * 对于所有继承并实现了该抽象类的子类，都会被自动扫描到并注册到设计器中。
- * 因此，所有要接入设计器的react组件都应该按照该类的约定实现其所有的方法。
- *
- * 泛型说明：
- * C: 组件控制器类，用于指定当前组件定义对应的控制器类
- * P: 组件配置类型，用于指定当前组件的配置数据(config属性的类型)
- */
-export abstract class AbstractDefinition<C extends AbstractController = AbstractController, P = any> {
-
-  /**
-   * 返回组件基础信息，用于在组件列表中展示
-   */
-  abstract getBaseInfo(): BaseInfoType ;
-
-  /**
-   * 返回组件的初始配置，用于在画布渲染组件时的初始化组件数据
-   */
-  abstract getInitConfig(): P;
-
-  /**
-   * 返回React组件Controller控制器的类模板，在画布中创建组件实例时会根据该方法的返回值实例化组件控制器并保存。
-   * 后续将通过该控制器的实例对象来控制组件的生命周期
-   */
-  abstract getController(): ClazzTemplate<C> | null;
-
-  /**
-   * 返回组件图片缩略图，在组件列表中展示时使用。图片尺寸越小越好
-   */
-  abstract getChartImg(): string | null;
-
-  /**
-   * 返回右侧配置菜单列表，双击组件时需要展示该菜单列表
-   */
-  abstract getMenuList(): Array<MenuInfo>;
-
-  /**
-   * 返回右侧菜单与对应配置内容组件的映射关系
-   */
-  abstract getMenuToConfigContentMap(): MenuToConfigMappingType;
-
-
-
-  /**
-   * 自定义组件主分类，如需要创建一个设计器没有提供的主分类，则实现该方法
-   */
-  getCategorize(): ICategorize | null {
-    return null;
-  }
-
-  /**
-   * 自定义组件子分类,如需要创建一个设计器没有提供的子分类，则实现该方法
-   */
-  getSubCategorize(): ICategorize | null {
-    return null;
-  }
+registerEvent() {
+  const componentId = this.config?.base?.id;
+  this.instance?.setEventHandler({
+    click: () => this.bpExecutor?.triggerComponentEvent(componentId!, "click", this.config, this.index),
+  });
 }
 ```
 
-如上，我们介绍了接入自定义组件过程中最重要的两个核心文件controller.ts和definition.ts，请务必重点理解这两个文件的作用和使用方法。并在实际开发组件的过程加以理解
+如果组件支持网络或静态数据，需在 `loadComponentData()` / `changeData()` 中实现加载与重新渲染；如果组件使用全局主题，还需在 `updateTheme()` 中处理主题变化。组件的配置项 schema 见[配置面板与 JSON Schema UI](/develop/ui.md)。
 
-## 打包组件
+## 打包并上传
 
-当你的组件编写测试完成之后，使用`light-chaser-cli build`命令打包组件，会在dist目录下生成一个组件包。
+```bash
+light-chaser-cli build
+```
 
-打包命令：
+不带组件名时，CLI 会打包 `src/components/` 下的所有组件；指定一个目录名可单独打包，例如 `light-chaser-cli build remote-button`。打包前会清空 `dist/`，每个组件输出为 `dist/<目录名>.js`。当前 CLI 参数只声明一个可选组件名，旧文档中的逗号分隔多组件命令不适用。
 
-- `light-chaser-cli build`：打包所有组件
-- `light-chaser-cli build <componentName>`：打包指定组件，componentName为组件所在的文件夹名称。多个componentName之间用","分隔
+1. 登录 Web 端，打开首页的“服务器组件”。
+2. 点击“上传”，选择脚手架生成的 `.js` 文件；管理页也接受 `.mjs` 或 `.zip` 文件。
+3. 上传后组件会出现在设计器的组件库中，可像其他组件一样添加到画布。
 
-![打包组件.png](打包组件.png)
+需要更新已上传组件时，使用管理页中的“替换”操作。删除组件前，先确认没有项目引用它；Web 端删除确认提示也说明了这一影响。
 
-![上传组件.png](上传组件.png)
-
-打开主设计器，并查看组件列表，你应该可以看到刚才上传的组件。组件的操作与默认集成的标准组件没有任何区别
-
-![加载服务器组件.png](加载服务器组件.png)
+> 本文中的 `create`、`dev`、`build` 行为按当前可核对的 `light-chaser-cli 0.0.11` 模板说明。CLI 模板使用 `light-chaser-interface`、`light-chaser-types`、`light-chaser-ui`、`light-chaser-util` 这些依赖名；请保留生成模板中的包名，不要直接替换成 Web 仓库的 workspace 包名。

@@ -1,29 +1,29 @@
-## 总览
+# 首页管理中心
 
-产品首页是 LIGHT CHASER PRO 的管理中心。登录后，左侧菜单会把常用功能分成项目、数据源、资源、发布和设置几大类，方便你按任务直接进入。
+登录后，LIGHT CHASER PRO 会进入 Web 管理中心。默认打开控制台；左侧侧栏用于切换项目、数据源、资源、组件、发布、AI 模型和帮助页面。
 
-## 页面里的入口
+![Web 管理中心控制台与侧栏](../../assets/web-2026-10/home-console.png)
 
-- [控制台](console.md)：快速查看当前环境的整体概况
-- [项目列表](project_list.md)：创建、打开、复制、预览和删除项目
-- [项目设置](project_setting.md)：管理当前项目的专属动态脚本
-- [数据源管理](datasource_management.md)：维护数据库和公共 API
-- [AI模型管理](ai_model_management.md)：配置可用于 AI 功能的模型
-- [资源管理](resource_management.md)：集中管理字体、动态脚本、视频和 3D 模型
-- [服务器组件](server_component.md)：上传和替换远程组件
-- [发布管理](release_management.md)：查看和维护已发布项目
-- [设置](setting.md)：查看账号、通用设置和关于信息
-- [帮助](more_info.md)：打开教程、文档、官网和支持入口
+## 侧栏入口
 
-## 账号入口
+- [控制台](/functions/home/console.md)：查看项目、资源、发布概况和近期变更。
+- [项目列表](/functions/home/project_list.md)：新建、编辑、预览和管理项目。
+- [数据源管理](/functions/home/datasource_management.md)：进入数据库管理或 API 管理。
+- [资源管理](/functions/home/resource_management.md)：进入字体、动态脚本、视频或 3D 模型管理。
+- [服务器组件](/functions/home/server_component.md)：上传、替换和维护设计器组件。
+- [发布管理](/functions/home/release_management.md)：查看、更新和启停已发布内容。
+- [AI 模型管理](/functions/home/ai_model_management.md)：维护 AI 功能可用的模型配置。
+- [帮助](/functions/home/more_info.md)：打开教程、文档、官网和支持入口。
+- [设置](/functions/home/setting.md)与[用户管理](/functions/home/user_management.md)：仅系统管理员在侧栏中看到这两个入口。
 
-右上角头像可以打开账号菜单，当前版本提供 `退出登录`。
+项目卡片右上角的操作菜单可打开该项目的[项目设置](/functions/home/project_setting.md)，目前此页用于管理项目级动态脚本。
 
-## 使用建议
+## 账号菜单
 
-- 第一次进入先看 [控制台](console.md)
-- 需要新建项目就去 [项目列表](project_list.md)
-- 需要给所有项目共用的资源就去 [资源管理](resource_management.md)
-- 只想给单个项目加脚本，就从 [项目设置](project_setting.md) 进入
+侧栏底部显示当前账号头像、名称和角色。打开账号菜单可以进入[账号设置](/functions/home/setting.md)或退出登录。账号设置入口对登录用户开放；侧栏里的系统设置入口仅系统管理员显示。
 
-![产品首页.png](产品首页.png)
+## 建议
+
+- 首次进入可先查看[控制台](/functions/home/console.md)，了解当前账号的项目和资源情况。
+- 创建项目后，可从项目卡片的“设置”入口添加仅对该项目生效的动态脚本。
+- 需要多个项目共用的字体、视频、模型或动态脚本，可从资源管理入口维护。

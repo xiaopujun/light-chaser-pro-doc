@@ -1,7 +1,7 @@
-## 使用教程
+# 使用教程
 
-视频教程：[LIGHT CHASER PRO 合集](https://www.bilibili.com/video/BV1z1421m7v2/?share_source=copy_web&vd_source=ece0559aa5b8c4f5c0d7307cb2b06aac)
+当前 Web 界面的图文流程见 [快速开始](/quick_start/quick_start.md)，完整操作入口见 [功能介绍](/functions/functions.md)。
 
-## 二次开发教程
+[视频教程合集](https://www.bilibili.com/video/BV1z1421m7v2/)保留供学习设计思路；视频录制版本可能与当前 Web 布局不同，按钮名称与位置以本指南的新截图为准。
 
-尽情期待...
+组件扩展见 [组件开发](/develop/index.md)，源码启动见 [Web 开发环境](/start.md)。

@@ -1,35 +1,28 @@
 # 软件部署
 
-当前版本的部署文档按三条交付线整理：
+当前功能指南对应 Web 端：浏览器访问同一个 `lcp-server` 服务，由它提供前端页面、`/api/**` 和 `/static/**`。部署 Web 站点优先查看 [Web 端部署](/deploy/web.md)。
 
-- 桌面端安装包：给普通用户安装桌面应用
-- Web 端部署：把 `lcp-server` 部署到 Windows / macOS / Linux
-- 运行时部署：把 `lcp-runtime` 部署到 Windows / macOS / Linux
+## 选择 Web 部署包
 
-?> 如果你只是想让用户下载安装到桌面端，直接看 [桌面端安装包](desktop_install.md)。
-?> 如果你要给服务器部署站点服务，先判断是 Web 端还是运行时，再进入对应章节。
-
-## 一览
-
-| 部署线 | 主要产物 | 适用场景 | 入口 |
+| 部署方式 | 主机条件 | 数据库 | 说明 |
 | --- | --- | --- | --- |
-| 桌面端 | Windows 安装包、macOS 安装包 | 普通用户下载安装到本机 | [桌面端安装包](desktop_install.md) |
-| Web 端 | `server.jar` | 给服务器部署浏览器访问版 | [Web 端部署](web.md) |
-| 运行时 | `lcp-runtime` + `web/` + `lcp-runtime-data/` | 给 Pure Release 同源部署 | [运行时部署](runtime.md) |
+| 常规部署包 | Java 17 | 自行准备 MySQL | 包含 `server.jar`、`component-docs/`、外部配置及平台启动脚本 |
+| Docker app | Docker 与 Compose | 自行准备 MySQL 8.0 | 应用在容器中运行，资源保留在部署目录 |
+| Docker allinone | Docker 与 Compose | 容器内 MySQL | 应用和数据库在同一容器中，数据保存在宿主机 `data/` |
 
-## 当前版本要点
+- [Windows 常规部署](/deploy/web/windows.md)
+- [Linux 常规部署](/deploy/web/linux.md)
+- [Docker app / allinone 部署](/deploy/web/docker.md)
+- [Web 升级与验证](/upgrade/upgrade.md)
 
-- 当前桌面端正式发版通过 [latest.json](https://lcpdesigner.cn/latest.json) 提供当前下载入口
-- 当前 Web 端已经收敛为单服务 `lcp-server`
-- 当前运行时通过 `lcp-runtime` 同时提供页面、接口和项目资源
-- 生产环境不再推荐把运行时拆成独立前端服务器和后端服务
+本节面向已取得部署包的使用者。源码开发启动见 [开发环境](/start.md)。
 
-## 推荐阅读顺序
+## 其他交付方式
 
-1. [桌面端安装包](desktop_install.md)
-2. [Web 端部署](web.md)
-3. [运行时部署](runtime.md)
+以下页面保留为独立交付方式或历史版本参考，未按 `lcp-web` 工程推断其当前发行状态：
 
-## 历史说明
+- [桌面端安装包](/deploy/desktop_install.md)：安装到用户电脑的桌面应用。
+- [独立运行时](/deploy/runtime.md)：另一套项目展示服务，不是当前 Web 的 `lcp-server`。
+- [旧版部署说明](/deploy/deploy.md)：维护历史环境时参考。
 
-如果你在维护旧环境，可以继续查看 [旧版部署说明](deploy.md)。
+Web 包的目录、参数和命令不应与上述其他交付方式混用。

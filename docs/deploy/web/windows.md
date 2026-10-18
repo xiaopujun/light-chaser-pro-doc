@@ -1,66 +1,53 @@
 # Windows Web 部署
 
-本页说明如何在 Windows 上部署 `lcp-server` 单服务。
+本文说明常规 Web 发布 ZIP 的 Windows 部署。请从发布 ZIP 解压完整文件，不要只复制 `server.jar`：包内启动脚本还会读取配置和同级的 `component-docs/`。
 
-## 1. 构建 `server.jar`
+## 准备目录和数据库
 
-在仓库的 `backend` 目录执行：
+例如将发布包解压到 `D:\light-chaser-server\`。目录中应保留：
 
-```bash
-mvn -pl lcp-server -am package -DskipTests
-```
+- `server.jar`
+- `component-docs\`
+- `config\application.yml`
+- `deploy_windows.cmd` 及包内其他文件
 
-构建完成后，前端页面和后端接口已经一起打进：
+部署机需安装 Java 17，并准备可用的 MySQL 实例。启动入口默认使用 `127.0.0.1:3306`，首次运行会交互询问数据库名、用户名和密码；启动账号需具备应用运行和数据库迁移所需权限。
 
-- `backend/lcp-server/target/server.jar`
+资源根目录可不配置，默认以 Java 进程工作目录为基准。若改用专门的数据目录，在 `config\application.yml` 中配置 `light-chaser.resource-path.root`，并确保运行账号有写权限。
 
-## 2. 准备外部配置
+## 启动和管理
 
-建议把配置文件放到固定目录，例如：
-
-- `D:\light-chaser-server\config\application.yml`
-
-最少需要配置数据库和资源根目录。示例：
-
-```yaml
-spring:
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    druid:
-      url: jdbc:mysql://127.0.0.1:3306/light_chaser_server?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: 123456
-
-light-chaser:
-  resource-path:
-    root: D:/light-chaser-server
-  # 如果你有授权包，把下面路径指向 license.zip 所在目录
-  # license: D:/light-chaser-license
-```
-
-## 3. 启动服务
-
-把 `server.jar` 复制到部署目录后，在 PowerShell 中启动：
+在文件资源管理器中双击 `deploy_windows.cmd`，或在 PowerShell 的发布包根目录运行：
 
 ```powershell
-$env:JAVA_HOME="C:\Program Files\Java\jdk-17"
-$env:PATH="$env:JAVA_HOME\bin;$env:PATH"
-java -jar server.jar --spring.config.location=file:D:/light-chaser-server/config/application.yml
+Set-Location D:\light-chaser-server
+.\deploy_windows.cmd
 ```
 
-如果你想把它做成常驻服务，建议用 Windows 服务管理工具把同一条启动命令包装起来。
+首次启动按提示填写数据库连接信息。应用在后台运行；标准输出和错误日志分别写入 `logs\startup.stdout.log` 与 `logs\startup.stderr.log`。后续可用：
 
-## 4. 验证部署
+```powershell
+.\deploy_windows.cmd --check
+.\deploy_windows.cmd --status
+.\deploy_windows.cmd --restart
+.\deploy_windows.cmd --stop
+```
 
-打开下面地址检查是否正常：
+`--check` 只读检查，不会提示或修改配置；缺少数据库值时会报告错误。`--status`、`--stop` 和 `--restart` 管理当前发布目录记录的进程。脚本不会安装 Java、注册 Windows 服务或配置开机自启。常驻运行时，可按需把发布目录入口接入你使用的 Windows 服务管理工具。
 
-- `http://服务器IP:8080/`
-- `http://服务器IP:8080/api/show/list`
-- `http://服务器IP:8080/static/...`
+## 手动运行（可选）
 
-## 5. 常见问题
+若自行管理进程，可在启动前填好 `config\application.yml`，然后用 Java Agent 启动。示例假设发布包位于 `D:\light-chaser-server\`：
 
-- 如果页面能打开但图片或视频加载失败，先检查 `light-chaser.resource-path.root` 是否可写
-- 如果数据库连不上，先检查 MySQL 地址、账号、密码和端口
-- 如果授权相关功能异常，确认 `license.zip` 是否放在配置的授权目录里
+```powershell
+Set-Location D:\light-chaser-server
+java "-javaagent:D:\light-chaser-server\server.jar" `
+  -jar "D:\light-chaser-server\server.jar" `
+  --spring.config.location=file:D:/light-chaser-server/config/application.yml
+```
+
+手动启动不会使用包内脚本的进程状态和日志管理。无论采用哪种方式，都要保留 `component-docs\` 与 `server.jar` 同级；若通过远程发布脚本只替换了 JAR，也要把发布 ZIP 中对应的 `component-docs\` 同步到该目录。
+
+## 验证
+
+打开 `http://服务器IP:8080/` 检查页面。应用 API 例如 `/api/show/list`；业务资源会通过 `/static/**` 提供。端口默认为 `8080`，可在配置文件的 `server.port` 修改。

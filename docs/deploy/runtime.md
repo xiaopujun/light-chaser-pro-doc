@@ -1,5 +1,7 @@
 # 运行时部署
 
+> 本页保留为独立交付方式的历史参考，未以 Web 工程验证其最新发行状态。当前 Web 站点请查看 [Web 端部署](/deploy/web.md)。
+
 运行时用于 Pure Release 同源部署。当前运行时包内已经把前端资源、运行时程序和数据目录模板放在一起，不需要你再单独准备前端服务器、后端运行环境或数据库。
 
 ## 发布物组成
@@ -34,12 +36,12 @@
 
 ## 推荐阅读顺序
 
-1. [部署参数说明](runtime/config.md)
-2. [Windows 运行时部署](windows常规部署/windows常规部署.md)
-3. [macOS 运行时部署](runtime/macos.md)
-4. [Linux 运行时部署](linux常规部署/linux常规部署.md)
-5. [Windows 快速启动](windows一键部署/windows平台一键部署.md)
-6. [Linux 快速启动](linux一键部署/Linux平台一键部署.md)
+1. [部署参数说明](/deploy/runtime/config.md)
+2. [Windows 运行时部署](/deploy/windows常规部署/windows常规部署.md)
+3. [macOS 运行时部署](/deploy/runtime/macos.md)
+4. [Linux 运行时部署](/deploy/linux常规部署/linux常规部署.md)
+5. [Windows 快速启动](/deploy/windows一键部署/windows平台一键部署.md)
+6. [Linux 快速启动](/deploy/linux一键部署/Linux平台一键部署.md)
 
 ## 说明
 

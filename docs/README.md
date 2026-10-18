@@ -4,10 +4,13 @@
 
 感谢关注和使用 LIGHT CHASER PRO。
 
-LIGHT CHASER PRO 是一套面向大屏、数据看板和交互页面的可视化产品。当前仓库已经同时包含两条交付线：
+LIGHT CHASER PRO 是一套面向大屏、数据看板和交互页面的可视化产品。本指南的功能说明以 **Web 端**为准：在浏览器中登录，完成项目设计、数据接入、资源管理、AI 辅助编辑和发布。
 
-- 桌面端设计器：用于项目创建、页面搭建、资源管理、数据源配置、导入导出、发布和查看
-- 运行时：用于同源托管、项目导入和纯展示访问
+本次文档按 Web 工程 `2026.9.0` 的代码及实际页面核对（2026-10-18）。截图使用文档示例项目，图表数据仅用于展示操作，均为 16:9。
+
+![Web 设计器总览](assets/web-2026-10/designer-overview.png)
+
+Web 端由 `lcp-server` 同时提供页面、接口和资源。桌面安装包与独立运行时属于另外的交付方式，保留在部署章节供对应版本查阅，不作为 Web 功能依据。
 
 如果在使用过程中遇到问题，可以通过页面中的帮助入口或作者联系方式获取支持。
 
@@ -19,15 +22,18 @@ LIGHT CHASER PRO 是一套面向大屏、数据看板和交互页面的可视化
 
 ## 主要入口
 
-- [快速开始](quick_start/quick_start.md)
-- [功能介绍](functions/functions.md)
-- [产品介绍](introduce.md)
+- [快速开始](/quick_start/quick_start.md)
+- [功能介绍](/functions/functions.md)
+- [产品介绍](/introduce.md)
+- [Web 端部署](/deploy/web.md)
+- [源码开发启动](/start.md)
 
 ## 相关链接
 
-#### 开源仓库
+#### 项目仓库
 
-- [GitHub 仓库](https://github.com/xiaopujun/lcp-desktop)
+- [Web 工程](https://github.com/xiaopujun/lcp-web)
+- [桌面端工程](https://github.com/xiaopujun/lcp-desktop)
 
 #### 社交媒体
 

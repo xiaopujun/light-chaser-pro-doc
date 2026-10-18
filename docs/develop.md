@@ -1,6 +1,7 @@
-# 开发文档（已迁移）
+# 开发文档
 
-本页是旧版开发说明，当前不再作为主文档维护。
+本章节说明 Web 端的服务器组件扩展方式，以及如何使用 JSON Schema UI 生成组件配置面板。
 
-如果你需要了解如何开发和接入组件，请查看 [组件开发](develop/index.md)。
-如果你只是想学习如何使用软件，可以直接看左侧的功能章节。
+- [组件开发总览](/develop/index.md)
+- [使用脚手架开发服务器组件](/develop/develop_pro.md)
+- [配置面板与 JSON Schema UI](/develop/ui.md)

@@ -1,54 +1,36 @@
 # Web 端部署
 
-Web 端当前已经收敛为单服务部署：
+本组文档说明拿到 Web 发布包后的部署。Web 服务由 `lcp-server` 同时提供前端页面、`/api/**` 接口和 `/static/**` 业务资源，不需要另行部署前端 Nginx。
 
-- `lcp-server` 同时提供前端页面、`/api/**` 接口和 `/static/**` 业务资源
-- 不再需要单独的前端 Nginx
-- 前端构建产物会随 `server.jar` 一起打包
+当前发布包有三种部署方式：
 
-## 部署前准备
+| 方式 | 运行内容 | 数据库 | 运行环境 |
+| --- | --- | --- | --- |
+| 常规部署 | `server.jar` | 外部 MySQL | Java 17 |
+| Docker app | 应用容器 | 外部 MySQL 8.0 | Docker Engine、Docker Compose v2.20+ |
+| Docker allinone | 单容器内的应用与 MySQL | 包内 MySQL | Docker Engine、Docker Compose v2.20+ |
 
-| 项目 | 说明 |
-| --- | --- |
-| JDK | 推荐 JDK 17 |
-| 数据库 | MySQL 8 或兼容版本 |
-| 服务端口 | 默认 `8080`，如需修改可在外部配置中指定 |
-| 资源目录 | 一个可写的资源根目录，用于保存图片、视频、字体、模型和动态脚本 |
-| 授权目录 | 如果你使用授权包，请准备 `license.zip` 所在目录 |
+## 常规部署包
 
-## 推荐流程
+常规 ZIP 中包含 `server.jar`、同级 `component-docs/`、`config/application.yml`、部署说明和平台启动入口。请解压完整发布包，并保留 `server.jar` 与 `component-docs/` 的同级关系；组件文档由服务读取。包内入口包括 Linux、Windows 和 macOS 启动脚本，其中 Windows 还提供命令行辅助脚本。
 
-1. 在 `backend` 目录构建 `server.jar`
-2. 准备外部 `application.yml`
-3. 配置数据库和资源目录
-4. 按操作系统启动 `server.jar`
-5. 访问首页并检查 `/api/**` 和 `/static/**`
+推荐使用包内启动入口，它会检查 Java 17、交互补齐缺少的数据库连接值，并记录进程和日志：
 
-## 通用配置示例
+- Linux：见 [Linux Web 部署](/deploy/web/linux.md)。
+- Windows：见 [Windows Web 部署](/deploy/web/windows.md)。
 
-下面是一个最小可用的外部配置示例，具体值请按你的环境调整：
+启动脚本默认连接本机 `127.0.0.1:3306`。首次启动会询问数据库名、用户名和密码；准备好可用的 MySQL 实例及具备应用所需权限的账号后，按提示填写。不要依赖固定的 `light_chaser_server` 数据库名。
 
-```yaml
-spring:
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    druid:
-      url: jdbc:mysql://127.0.0.1:3306/light_chaser_server?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: 123456
+`light-chaser.resource-path.root` 可以不配置；未配置时资源根目录以 Java 进程工作目录为基准。若要把上传资源存到其他位置，可在 `config/application.yml` 中显式配置，并确保运行账号有读写权限。AI 存储和授权目录也按需配置。
 
-light-chaser:
-  resource-path:
-    root: /usr/app/light-chaser-server
-  # 如果你有授权包，把下面路径指向 license.zip 所在目录
-  # license: /usr/app/license
-```
+若自行管理 Java 进程，可手动运行带 `-javaagent` 的命令；示例见操作系统部署页。手动启动前需自行填写 `config/application.yml` 中的数据库连接信息，且仍需保留 `component-docs/`。
 
-?> `light-chaser.resource-path.root` 一定要指向一个可写目录，否则图片、视频、字体、模型和动态脚本资源无法落盘。
+## Docker 发布包
 
-## 操作系统入口
+当前 Docker 发布包分为 Docker app 与 Docker allinone，使用包内镜像和一键启动脚本，部署机不需要 Node.js、Java 或 JDK。系统架构需与发布包标注的 `amd64` 或 `arm64` 匹配；部署机需要本机 Docker Engine 或 Docker Desktop 的 Linux 容器引擎，以及 Docker Compose v2.20+。
 
-- [Windows 部署](web/windows.md)
-- [macOS 部署](web/macos.md)
-- [Linux 部署](web/linux.md)
+详细步骤、`.env` 配置、持久化目录和日常操作见 [Web Docker 部署](/deploy/web/docker.md)。
+
+## 部署文档范围
+
+这里的 Docker app/allinone 是当前 Web 服务的 Docker 发布包。它与 [旧 Docker 部署说明](/deploy/docker部署/Docker部署.md)及[运行时部署](/deploy/runtime.md)分别维护；运行时部署用于 Pure Release 同源托管，不是本页三种 Web 服务部署方式之一。

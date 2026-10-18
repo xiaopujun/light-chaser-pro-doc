@@ -1,10 +1,8 @@
 # 全局变量
 
-![蓝图全局变量.png](蓝图全局变量.png)
+![Web 端蓝图中的全局变量节点入口](../../assets/web-2026-10/blueprint-overview.png)
 
-![全局变量入口.png](全局变量入口.png)
-
-蓝图里的全局变量节点来自主设计器中的 [全局变量](../main_desiner/global_variable.md)。
+蓝图里的全局变量节点来自主设计器中的 [全局变量](/functions/main_desiner/global_variable.md)。
 
 ## 怎么用
 
