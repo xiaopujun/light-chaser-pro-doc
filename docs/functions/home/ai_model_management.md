@@ -2,7 +2,7 @@
 
 AI 模型管理用于保存当前账号的 AI 服务接入配置。进入方式：左侧点击“AI 模型管理”。
 
-![Web 新建 AI 模型配置表单](../../assets/web-2026-10/home-ai-models.png)
+![Web 新建 AI 模型配置表单](../../assets/web-2026-10/home-ai-models.webp)
 
 ## 当前提供商
 

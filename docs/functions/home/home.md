@@ -2,7 +2,7 @@
 
 登录后，LIGHT CHASER PRO 会进入 Web 管理中心。默认打开控制台；左侧侧栏用于切换项目、数据源、资源、组件、发布、AI 模型和帮助页面。
 
-![Web 管理中心控制台与侧栏](../../assets/web-2026-10/home-console.png)
+![Web 管理中心控制台与侧栏](../../assets/web-2026-10/home-console.webp)
 
 ## 侧栏入口
 

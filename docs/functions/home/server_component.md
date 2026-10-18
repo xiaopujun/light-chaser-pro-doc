@@ -1,6 +1,6 @@
 # 服务器组件
 
-![Web 服务器组件管理页面](../../assets/web-2026-10/home-components.png)
+![Web 服务器组件管理页面](../../assets/web-2026-10/home-components.webp)
 
 服务器组件用于把自定义组件加入主设计器的组件列表。进入方式：左侧点击“服务器组件”。
 

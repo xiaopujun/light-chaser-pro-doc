@@ -2,7 +2,7 @@
 
 组件库从主设计器左侧栏打开，也可点击画布工具栏中的组件按钮。列表根据当前项目加载的组件定义生成，包含内置组件和已加载的扩展组件。
 
-![Web 端组件库](../../assets/web-2026-10/designer-components.png)
+![Web 端组件库](../../assets/web-2026-10/designer-components.webp)
 
 ## 查找组件
 

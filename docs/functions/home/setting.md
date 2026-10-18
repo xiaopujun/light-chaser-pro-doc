@@ -2,7 +2,7 @@
 
 设置页包含账号、通用、品牌和关于四个区域。登录用户可以从侧栏底部的账号菜单进入；只有系统管理员（`SYSTEM_ADMIN`）会在侧栏看到单独的“设置”入口。
 
-![Web 设置页面](../../assets/web-2026-10/home-settings.png)
+![Web 设置页面](../../assets/web-2026-10/home-settings.webp)
 
 ## 账号
 

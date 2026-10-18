@@ -1,6 +1,6 @@
 # 全局变量
 
-![Web 端蓝图中的全局变量节点入口](../../assets/web-2026-10/blueprint-overview.png)
+![蓝图全局变量入口、赋值与重复使用限制](../../assets/web-2026-10/blueprint-variables.webp)
 
 蓝图里的全局变量节点来自主设计器中的 [全局变量](/functions/main_desiner/global_variable.md)。
 

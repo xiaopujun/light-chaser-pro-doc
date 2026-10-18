@@ -2,7 +2,7 @@
 
 数据库管理用于创建可在项目中复用的数据库连接。进入方式：左侧“数据源管理”→“数据库管理”。
 
-![Web 数据库连接新建表单](../../assets/web-2026-10/home-datasource.png)
+![Web 数据库连接新建表单](../../assets/web-2026-10/home-datasource.webp)
 
 ## 支持的数据库
 

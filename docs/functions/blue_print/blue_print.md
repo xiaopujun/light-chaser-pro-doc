@@ -2,7 +2,7 @@
 
 蓝图把组件事件、变量变化和页面逻辑连成可执行流程。打开主设计器中的蓝图后，可以在画布上放置节点、连接锚点，并在节点配置区设置参数。
 
-![Web 端蓝图编辑器总览](../../assets/web-2026-10/blueprint-overview.png)
+![Web 端蓝图编辑器总览](../../assets/web-2026-10/blueprint-overview.webp)
 
 ## 界面分区
 

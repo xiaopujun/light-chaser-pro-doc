@@ -2,7 +2,7 @@
 
 主设计器左侧栏底部的 **AI 驱动**按钮会打开 AI 任务面板。面板用于提交设计需求，并结合当前项目画布上下文执行任务；使用前需先在 [AI 模型管理](/functions/home/ai_model_management.md)中配置可用模型。
 
-![Web 端 AI 驱动面板](../../assets/web-2026-10/designer-ai.png)
+![Web 端 AI 驱动面板](../../assets/web-2026-10/designer-ai.webp)
 
 ## 提交任务
 
@@ -13,6 +13,6 @@
 
 面板还提供历史记录，可查看以往任务或继续未完成的任务。运行设置中可以调整模型请求超时、上下文以及新任务的 Token、调用次数和时长限制；设置对后续新任务生效。
 
-![Web 端 AI 运行设置](../../assets/web-2026-10/designer-ai-settings.png)
+![Web 端 AI 运行设置](../../assets/web-2026-10/designer-ai-settings.webp)
 
 如果模型列表为空，请先检查 [AI 模型管理](/functions/home/ai_model_management.md)中的模型配置和可用状态。AI 修改画布前请检查预览结果，确认改动符合预期。

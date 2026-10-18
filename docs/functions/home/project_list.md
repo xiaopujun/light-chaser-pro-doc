@@ -2,7 +2,7 @@
 
 项目列表以卡片展示当前账号可访问的项目。每页最多显示 6 个项目，可按关键词搜索；搜索时按回车提交。
 
-![Web 项目列表](../../assets/web-2026-10/home-projects.png)
+![Web 项目列表](../../assets/web-2026-10/home-projects.webp)
 
 ## 新建项目
 

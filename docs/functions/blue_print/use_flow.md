@@ -1,6 +1,6 @@
 # 蓝图使用流程
 
-![Web 端蓝图使用示意](../../assets/web-2026-10/blueprint-overview.png)
+![Web 端蓝图使用示意](../../assets/web-2026-10/blueprint-overview.webp)
 
 1. 在主设计器中创建要参与联动的组件或全局变量。
 2. 打开蓝图，并选择需要编辑的页面。

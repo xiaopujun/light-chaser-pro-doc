@@ -21,4 +21,4 @@
 
 打开项目并检查画布、组件引用和数据连接。公共 API、数据库等外部服务是否可用，取决于目标环境中的对应配置；外部图片、视频、字体和模型资源也应在预览中逐项确认。
 
-![Web 端项目操作菜单](../../assets/web-2026-10/designer-project-menu.png)
+![Web 端项目操作菜单](../../assets/web-2026-10/designer-project-menu.webp)

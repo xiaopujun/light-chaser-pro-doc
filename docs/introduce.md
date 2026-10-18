@@ -2,7 +2,7 @@
 
 LIGHT CHASER PRO Web 端是一款在浏览器中使用的可视化设计工具，适用于数据大屏、运营看板和交互展示页面。用户通过拖放组件、配置数据和连接蓝图节点完成项目，再通过发布链接提供访问。
 
-![Web 设计器：工具栏、画布与面板](assets/web-2026-10/designer-overview.png)
+![Web 设计器：工具栏、画布与面板](assets/web-2026-10/designer-overview.webp)
 
 ## 可以做什么
 

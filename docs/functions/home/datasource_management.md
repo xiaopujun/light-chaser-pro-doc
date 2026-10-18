@@ -2,7 +2,7 @@
 
 Web 侧栏的“数据源管理”分组包含数据库管理和 API 管理两个页面。这里用于保存可在项目中复用的连接配置。
 
-![Web 数据库连接新建表单](../../assets/web-2026-10/home-datasource.png)
+![Web 数据库连接新建表单](../../assets/web-2026-10/home-datasource.webp)
 
 ## 数据库管理
 

@@ -2,7 +2,7 @@
 
 API 管理用于保存项目可以复用的公共 HTTP API 配置。进入方式：左侧“数据源管理”→“API 管理”。
 
-![Web API 管理页面](../../assets/web-2026-10/home-api.png)
+![Web API 管理页面](../../assets/web-2026-10/home-api.webp)
 
 ## 配置内容
 
